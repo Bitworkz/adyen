@@ -3,7 +3,8 @@
 	"description" : "Package to handle Adyen requests",
 	"type" : "package",
 	"require" : {
-		"php" : ">=7.1.0"
+		"php" : ">=7.1.0",
+		"adyen/php-api-library" : "~1.4"
 	},
 	"license" : "mit",
 	"authors" : [{
