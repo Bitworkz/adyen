@@ -1,22 +1,25 @@
 {
-    "name": "bitworkz/adyen",
-    "description": "Package to handle Adyen requests",
-    "type": "package",
-    "require": {
-        "php": ">=7.0.1"
-    },
-    "license": "mit",
-    "authors": [
-        {
-            "name": "Erik Willems",
-            "email": "contact@bitworkz.com",
-            "homepage": "https://www.bitworkz.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "bitworkz\\Adyen\\": "src/"
-        }
-    }
+	"name" : "bitworkz/adyen",
+	"description" : "Package to handle Adyen requests",
+	"type" : "package",
+	"require" : {
+		"php" : ">=7.1.0"
+	},
+	"license" : "mit",
+	"authors" : [{
+			"name" : "Erik Willems",
+			"email" : "contact@bitworkz.com",
+			"homepage" : "https://www.bitworkz.com"
+		}
+	],
+	"minimum-stability" : "dev",
+	"autoload" : {
+		"psr-4" : {
+			"bitworkz\\Adyen\\" : "src/"
+		}
+	},
+	"keywords" : [
+		"adyen",
+		"bitworkz"
+	]
 }
