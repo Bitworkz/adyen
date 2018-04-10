@@ -244,7 +244,7 @@ class AdyenTest extends TestCase
      */
     public function testSetRefundUrl()
     {
-        $this->adyen->setRefundUrl('RefundUrl');
+        $this->adyen->setRefundUrl('https://pal-test.adyen.com/pal/Payment.wsdl');
     }
 
     /**
@@ -252,15 +252,19 @@ class AdyenTest extends TestCase
      */
     public function testListPaymentMethods()
     {
+        $this->adyen
+            ->setEnvironment('test')
+            ->setAmount('10')
+            ->setCurrency('EUR')
+            ->setMerchantReference('Get payment methods')
+            ->setMerchant('InsidersEU')
+            ->setSkinCode('hXk0ZPAJ')
+            ->setCountryCode('BE')
+            ->setLocale('nl_BE')
+            ->setHmacCode('2EB62F7FBEF75B82CC7608A0D892724B13F9DEB55BC41E3F3B73D4F610373B8D')
+            ;
+        
         $this->adyen->listPaymentMethods();
-    }
-
-    /**
-     * Tests Adyen->pay()
-     */
-    public function testPay()
-    {
-        $this->adyen->pay();
     }
 
     /**
@@ -269,14 +273,6 @@ class AdyenTest extends TestCase
     public function testGeneratePaymentForm()
     {
         $this->adyen->generatePaymentForm();
-    }
-
-    /**
-     * Tests Adyen->refund()
-     */
-    public function testRefund()
-    {
-        $this->adyen->refund();
     }
 }
 
