@@ -4,7 +4,9 @@
 	"type" : "package",
 	"require" : {
 		"php" : ">=7.1.0",
-		"adyen/php-api-library" : "~1.4",
+		"adyen/php-api-library" : "~1.4"
+	},
+	"require-dev" : {
 		"phpunit/phpunit" : "~7.1"
 	},
 	"license" : "mit",
@@ -18,6 +20,11 @@
 	"autoload" : {
 		"psr-4" : {
 			"bitworkz\\Adyen\\" : "src/"
+		}
+	},
+	"autoload-dev" : {
+		"psr-4" : {
+			"bitworkz\\Adyen\\Test\\" : "tests/"
 		}
 	},
 	"keywords" : [
