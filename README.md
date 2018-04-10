@@ -1,7 +1,7 @@
 # PHP simplified Adyen library
 
 [![Build Status](https://travis-ci.org/bitworkz/adyen.svg?branch=master)](https://travis-ci.org/bitworkz/adyen)
-[![Latest Stable Version](http://img.shields.io/packagist/v/bitworkz/adyen.svg?style=flat-square)](https://packagist.org/packages/bitworkz/adyen)
+[![Latest Stable Version](http://img.shields.io/packagist/v/bitworkz/adyen.svg)](https://packagist.org/packages/bitworkz/adyen)
 
 ## Description ##
 This library is a simplified library to work with the adyen-php-api-library
