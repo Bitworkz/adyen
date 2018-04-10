@@ -1,2 +1,2 @@
-# adyen
-Package to handle adyen actions
+# PHP simplified Adyen library
+
