@@ -16,7 +16,7 @@
 			"homepage" : "https://www.bitworkz.com"
 		}
 	],
-	"minimum-stability" : "stable",
+	"minimum-stability" : "dev",
 	"autoload" : {
 		"psr-4" : {
 			"bitworkz\\Adyen\\" : "src/"
