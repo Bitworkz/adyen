@@ -125,7 +125,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2017-06-19 01:22:40"
+            "time": "2017-06-19T01:22:40+00:00"
         },
         {
             "name": "psr/log",
@@ -172,7 +172,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-04-03 15:59:15"
+            "time": "2018-04-03T15:59:15+00:00"
         }
     ],
     "packages-dev": [
@@ -598,12 +598,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "17f97a68562e514a3b5df9b12a408e19f07e3990"
+                "reference": "a23ddc74c1c1c896ad2aa740d0c4183203a34d07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/17f97a68562e514a3b5df9b12a408e19f07e3990",
-                "reference": "17f97a68562e514a3b5df9b12a408e19f07e3990",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/a23ddc74c1c1c896ad2aa740d0c4183203a34d07",
+                "reference": "a23ddc74c1c1c896ad2aa740d0c4183203a34d07",
                 "shasum": ""
             },
             "require": {
@@ -653,7 +653,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-07T12:09:09+00:00"
+            "time": "2018-04-12T05:33:32+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

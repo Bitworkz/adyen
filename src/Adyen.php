@@ -488,11 +488,19 @@ class Adyen
     
     /**
      * make a payment to adyen
-     * needed elements: merchant, amount, currency, reference, clientEmail, clientReference, encryptedData, authUrl, wsUser, wsPassword
+     * needed elements: wsUser, wsPassword, environment, applicationName, merchant, amount, currency, paymentReference, clientEmail, clientReference, encryptedData
      * @return mixed
      */
     public function pay()
     {
+        $client = new Client();
+        $client->setUsername($this->wsUser);
+        $client->setPassword($this->wsPassword);
+        $client->setEnvironment($this->environment);
+        $client->setApplicationName($this->applicationName);
+
+        $service = new Payment($client);
+
         $request = [
             "merchantAccount" => $this->merchant,
             "amount" => [
@@ -513,7 +521,8 @@ class Adyen
             ]
         ];
         
-        $result = $this->post($this->authUrl, $this->wsUser, $this->wsPassword, $request);
+        $result = $service->authorise($request);
+        print_r($result);
         return $result;
     }
     
