@@ -591,8 +591,6 @@ class Adyen
 
         $result = $service->authorise3D($request);
 
-        print_r($result);
-
         return $result;
     }
     
