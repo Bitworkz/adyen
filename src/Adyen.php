@@ -169,6 +169,18 @@ class Adyen
      * @var string
      */
     protected $refundUrl;
+
+    /**
+     * MD response from an Adyen payment
+     * @var string
+     */
+    protected $md;
+
+    /**
+     * pa response from an Adyen payment
+     * @var string
+     */
+    protected $paResponse;
     
     /**
      * set the merchant account
@@ -455,6 +467,28 @@ class Adyen
         $this->refundUrl = $url;
         return $this;
     }
+
+    /**
+     * set the Adyen md response
+     * @param string $md
+     * @return $this
+     */
+    public function setMd($md)
+    {
+        $this->md = $md;
+        return $this;
+    }
+
+    /**
+     * set the Adyen pa response
+     * @param string $response
+     * @return $this
+     */
+    public function setPaResponse($response)
+    {
+        $this->paResponse = $response;
+        return $this;
+    }
     
     /**
      * list all payment methods
@@ -501,6 +535,11 @@ class Adyen
 
         $service = new Payment($client);
 
+        $browserInfo = [
+            "userAgent" => $_SERVER['HTTP_USER_AGENT'],
+            "acceptHeader" => $_SERVER['HTTP_ACCEPT']
+        ];
+
         $request = [
             "merchantAccount" => $this->merchant,
             "amount" => [
@@ -515,14 +554,45 @@ class Adyen
             "additionalData"=> [
                 "card.encrypted.json" => $this->encryptedData
             ],
-            "browserInfo"=> [
-                "acceptHeader" => $_SERVER['HTTP_USER_AGENT'],
-                "userAgent" => $_SERVER['HTTP_ACCEPT']
-            ]
+            "browserInfo"=> $browserInfo
         ];
         
         $result = $service->authorise($request);
+
+        return $result;
+    }
+
+    /**
+     * Authorize 3D secured payment
+     * @return mixed
+     * @throws \Adyen\AdyenException
+     */
+    public function authorizePayment()
+    {
+        $client = new Client();
+        $client->setUsername($this->wsUser);
+        $client->setPassword($this->wsPassword);
+        $client->setEnvironment($this->environment);
+        $client->setApplicationName($this->applicationName);
+
+        $service = new Payment($client);
+
+        $browserInfo = [
+            "userAgent" => $_SERVER['HTTP_USER_AGENT'],
+            "acceptHeader" => $_SERVER['HTTP_ACCEPT']
+        ];
+        $request = [
+            "merchantAccount" => $this->merchant,
+            "browserInfo" => $browserInfo,
+            "md" => $this->md,
+            "paResponse" => $this->paResponse,
+            "shopperIP" => $_SERVER['REMOTE_ADDR']
+        ];
+
+        $result = $service->authorise3D($request);
+
         print_r($result);
+
         return $result;
     }
     
