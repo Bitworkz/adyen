@@ -552,7 +552,8 @@ class Adyen
             "shopperReference" => $this->clientReference,
             "fraudOffset" => "0",
             "additionalData"=> [
-                "card.encrypted.json" => $this->encryptedData
+                "card.encrypted.json" => $this->encryptedData,
+                "executeThreeD" => "true"
             ],
             "browserInfo"=> $browserInfo
         ];
